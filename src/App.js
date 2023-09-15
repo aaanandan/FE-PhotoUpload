@@ -1,10 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-<>
-  <meta httpEquiv="content-type" content="text/html; charset=UTF-8" />
+function Header(){
+  return(<> <meta httpEquiv="content-type" content="text/html; charset=UTF-8" />
   <meta charSet="UTF-8" />
   <link
     rel="icon"
@@ -31,7 +29,17 @@ function App() {
     href="assets/select2-4.0.13.min.css"
     type="text/css"
   />
-  <title>Kailasapedia Form</title>
+</>);
+}
+
+function footer(){
+
+}
+function App() {
+  return (
+<>
+<Header/>
+   <title>Kailasapedia Form</title>
   <div className="menu">
     <div className="menu_content">
       <img
