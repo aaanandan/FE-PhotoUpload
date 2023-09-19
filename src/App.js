@@ -102,7 +102,7 @@ function App() {
         name="entity"
         data-select2-id="entity"
         tabIndex={-1}
-        className="select2-hidden-accessible"
+        className="select2-accessible"
         aria-hidden="true"
       >
         <option value="Bidadi" data-select2-id={2} selected="selected">
