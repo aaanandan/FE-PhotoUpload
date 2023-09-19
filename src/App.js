@@ -197,8 +197,7 @@ function App() {
       <select
         id="event_type"
         name="event_type"
-        tabIndex={-1}
-        className="select2-hidden-accessible"
+        className=""
         aria-hidden="true"
       >
         <option value="nithyotsavam" selected="selected">
@@ -246,7 +245,7 @@ function App() {
         multiple="multiple"
         data-select2-id="activity_type"
         tabIndex={-1}
-        className="select2-hidden-accessible"
+        className=""
         aria-hidden="true"
       >
         <option value="ritual">Puja and Rituals</option>
