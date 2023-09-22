@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 
 function Header() {
-  return (<> <meta httpEquiv="content-type" content="text/html; charset=UTF-8" />
+  return (<>
+    <title>File upload</title>
+    <meta httpEquiv="content-type" content="text/html; charset=UTF-8" />
     <meta charSet="UTF-8" />
     <link
       rel="icon"
@@ -87,7 +89,6 @@ function App() {
             defaultValue="2023-07-24"
             required
             className="flatpickr-input"
-            readOnly="readonly"
           />
           <span id="date_helptext" className="helptext">
             Select the actual date when this event took place, and the
@@ -361,7 +362,7 @@ function App() {
             id="files"
             name="files"
             accept=".jpg, .jpeg, .png, .webp"
-            multiple=""
+            multiple
             required
           />
           <span id="files_helptext" className="helptext">
