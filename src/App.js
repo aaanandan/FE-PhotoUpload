@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
+import { useState } from 'react';
 function Header() {
   return (<>
     <title>File upload</title>
@@ -38,6 +41,8 @@ function footer() {
 
 }
 function App() {
+  const [startDate, setStartDate] = useState(new Date());
+
   return (
     <>
       <Header />
@@ -80,16 +85,11 @@ function App() {
           </span>
           <span className="denote_required">This input field is mandatory.</span>
         </div>
-        <div className="date">
+        <div >
           <label htmlFor="date">Date of Images</label>
-          <input
-            type="text"
-            id="date"
-            name="date"
-            defaultValue="2023-07-24"
-            required
-            className="flatpickr-input"
-          />
+          <DatePicker id="date" name="date" selected={startDate} onChange={(date) => setStartDate(date)} />
+
+
           <span id="date_helptext" className="helptext">
             Select the actual date when this event took place, and the
             photographs/images were captured.
