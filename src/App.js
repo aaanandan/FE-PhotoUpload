@@ -62,7 +62,7 @@ function App() {
       </div>
       <form
         id="upload"
-        action="http://localhost:3000/upload"
+        action="https://npedia.dev.koogle.sk/upload"
         method="post"
         encType="multipart/form-data"
       >
