@@ -2,16 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState, CSSProperties } from "react";
+import { useState } from "react";
 import HashLoader from "react-spinners/HashLoader";
 
 
-
-const override = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "red",
-};
 
 function Header() {
   return (<>
@@ -46,14 +40,65 @@ function Header() {
   </>);
 }
 
+
+
 function footer() {
 
 }
-function App() {
-  const [startDate, setStartDate] = useState(new Date());
-  let [loading, setLoading] = useState(false);
-  let [color, setColor] = useState("#ffffff");
 
+
+
+function App() {
+  let [isLoading, setLoading] = useState(false);
+
+  let [email, setEmail] = useState(null);
+  let [startDate, setStartDate] = useState(new Date());
+  let [place, setPlace] = useState(null);
+  let [presidentialBriefing, setPresidentialBriefing] = useState(null);
+  let [eventType, setEventType] = useState(null);
+  let [eventName, setEventName] = useState(null);
+  let [activityType, setActivityType] = useState(null);
+  let [volunteerCount, setVolunteerCount] = useState(null);
+  let [livesEnriched, setLivesEnriched] = useState(null);
+  let [description, setDescription] = useState(null);
+  let [files, setFiles] = useState(null);
+
+  const handleClick = (e) => {
+    // let target = e.target;
+    // let data = { email, startDate, place, presidentialBriefing, eventType, eventName, activityType, volunteerCount, livesEnriched, description }
+
+
+    if (email != null && startDate != null && description != null && files != null) {
+      setLoading(true);
+      let data = new FormData();
+      data.append('email', email);
+      data.append('startDate', startDate);
+      data.append('place', place);
+
+      data.append('presidentialBriefing', presidentialBriefing);
+      data.append('eventType', eventType);
+      data.append('eventName', eventName);
+      data.append('activityType', activityType);
+      data.append('volunteerCount', volunteerCount);
+      data.append('livesEnriched', livesEnriched);
+      data.append('description', description);
+
+      let input = document.querySelector('input[type="file"]');
+      console.log('files...', input.files, files);
+      for (let i = 0; i < files.length; i++) {
+        data.append(`file-${i}`, files[i], files[i].name);
+      }
+      fetch('http://localhost:3001/upload', {
+        method: 'POST',
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => { alert(data); setLoading(false); })
+        .catch((err) => { alert(err); setLoading(false); });
+    } else {
+      alert('Please fill all the mandatory fields');
+    }
+  }
   return (
     <>
       <Header />
@@ -71,14 +116,9 @@ function App() {
           />
         </div>
       </div>
-      {loading ? <center><br></br><br></br><HashLoader color="orange" size={600}
+      {isLoading ? <center><br></br><br></br><HashLoader color="orange" size={600}
       /><br></br>Uploading</center> :
-        <form
-          id="upload"
-          action="https://npedia.dev.koogle.sk/upload"
-          method="post"
-          encType="multipart/form-data"
-
+        <form id="upload"
         >
           <div className="email_id input_container">
             <label htmlFor="email_id">Email id</label>
@@ -88,6 +128,7 @@ function App() {
               name="email_id"
               required
               inputMode="email"
+              onChange={(e) => { setEmail(e.target.value) }}
             />
             <span id="email_id_helptext" className="helptext">
               Email id of the person or Kailasa entity submitting this form. Please
@@ -101,7 +142,7 @@ function App() {
           </div>
           <div >
             <label htmlFor="date">Date of Images</label>
-            <DatePicker id="date" name="date" selected={startDate} onChange={(date) => setStartDate(date)} />
+            <DatePicker id="date" name="date" selected={startDate} onChange={(startDate) => setStartDate(startDate)} />
             <span id="date_helptext" className="helptext">
               Select the actual date when this event took place, and the
               photographs/images were captured.
@@ -117,6 +158,7 @@ function App() {
               tabIndex={-1}
               className="select2-accessible"
               aria-hidden="true"
+              onChange={(e) => { setPlace(e.target.value) }}
             >
               <option value="Bidadi" data-select2-id={2} selected="selected">
                 Adikailasa AK
@@ -184,6 +226,7 @@ function App() {
               cols={50}
               required
               defaultValue={""}
+              onChange={(e) => { setPresidentialBriefing(e.target.value) }}
             />
             <span id="pd_brief_helptext" className="helptext">
               <p>
@@ -212,6 +255,7 @@ function App() {
               name="event_type"
               className=""
               aria-hidden="true"
+              onChange={(e) => { setEventType(e.target.value) }}
             >
               <option value="nithyotsavam" selected="selected">
                 Daily Rituals (Nithyotsavam)
@@ -243,7 +287,7 @@ function App() {
           </div>
           <div className="event_name input_container">
             <label htmlFor="event_name">Event Name</label>
-            <input type="text" id="event_name" name="event_name" inputMode="text" />
+            <input type="text" id="event_name" name="event_name" inputMode="text" onChange={(e) => { setEventName(e.target.value) }} />
             <span id="event_name_helptext" className="helptext">
               Type the name of the event, example : Padapuja, Gurupurnima, etc.
               Allowed characters : alphabets, numbers, space, underscore, dash,
@@ -260,6 +304,8 @@ function App() {
               tabIndex={-1}
               className=""
               aria-hidden="true"
+              onChange={(e) => { setActivityType(e.target.value) }}
+
             >
               <option value="ritual">Puja and Rituals</option>
               <option value="offering">Offering Services or Sevas</option>
@@ -319,6 +365,7 @@ function App() {
               step={1}
               defaultValue={0}
               required
+              onChange={(e) => { setVolunteerCount(e.target.value) }}
             />
             <span id="volunteer_count_helptext" className="helptext">
               Enter here the total number of volunteers/monks who directly worked for
@@ -335,6 +382,8 @@ function App() {
               step={1}
               defaultValue={0}
               required
+              onChange={(e) => { setLivesEnriched(e.target.value) }}
+
             />
             <span id="lives_enriched_helptext" className="helptext">
               Enter here the total number of people amongst the general public who
@@ -350,6 +399,7 @@ function App() {
               cols={50}
               required
               defaultValue={""}
+              onChange={(e) => { setDescription(e.target.value) }}
             />
             <span id="description_helptext" className="helptext">
               Give a complete description of the event, in as few words as possible.
@@ -365,27 +415,26 @@ function App() {
               accept=".jpg, .jpeg, .png, .webp"
               multiple
               required
+              onChange={(e) => { setFiles(e.target.files) }}
             />
             <span id="files_helptext" className="helptext">
               Select images files and photographs of the event to upload
             </span>
             <span className="denote_required">This input field is mandatory.</span>
           </div>
-          <input type='submit' value='Upload' onClick={(e) => {
-            console.log(e.target)
-            if (e.target[0].value && e.target[1].value && e.target[4].value && e.target[9].value && e.target[10].value)
-              setLoading(true);
-            else {
-              e.preventDefault();
-              alert('Please fill all the mandatory fields');
-            }
-          }}
-          />
+
+          <button
+            onClick={handleClick} disabled={isLoading}
+            className={isLoading ? 'disabled' : ''}
+          >
+            {isLoading ? 'Loading...' : 'Submit'}
+          </button>
         </form >
       }
       <grammarly-desktop-integration data-grammarly-shadow-root="true" />
     </>
   );
 }
+
 
 export default App;
