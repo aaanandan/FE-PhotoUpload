@@ -53,9 +53,9 @@ function App() {
 
   let [email, setEmail] = useState(null);
   let [startDate, setStartDate] = useState(new Date());
-  let [place, setPlace] = useState(null);
+  let [place, setPlace] = useState('Adikailasa AK');
   let [presidentialBriefing, setPresidentialBriefing] = useState(null);
-  let [eventType, setEventType] = useState(null);
+  let [eventType, setEventType] = useState('Daily Rituals (Nithyotsavam)');
   let [eventName, setEventName] = useState(null);
   let [activityType, setActivityType] = useState(null);
   let [volunteerCount, setVolunteerCount] = useState(null);
@@ -86,15 +86,15 @@ function App() {
       let input = document.querySelector('input[type="file"]');
       console.log('files...', input.files, files);
       for (let i = 0; i < files.length; i++) {
-        data.append(`file-${i}`, files[i], files[i].name);
+        data.append(`files`, files[i], files[i].name);
       }
-      fetch('http://localhost:3001/upload', {
+      fetch('https://npedia.dev.koogle.sk/upload', {
         method: 'POST',
         body: data,
       })
         .then((res) => res.json())
-        .then((data) => { alert(data); setLoading(false); })
-        .catch((err) => { alert(err); setLoading(false); });
+        .then((data) => { alert(JSON.stringify(data)); setLoading(false); })
+        .catch((err) => { alert(JSON.stringify(err)); setLoading(false); });
     } else {
       alert('Please fill all the mandatory fields');
     }
@@ -160,9 +160,7 @@ function App() {
               aria-hidden="true"
               onChange={(e) => { setPlace(e.target.value) }}
             >
-              <option value="Bidadi" data-select2-id={2} selected="selected">
-                Adikailasa AK
-              </option>
+              <option value="Bidadi" data-select2-id={2} selected="selected">Adikailasa AK</option>
               <option value="TVM">KAILASA Thiruvannamalai TVM</option>
               <option value="Madurai">KAILASA Madurai </option>
               <option value="LA">KAILASA Los Angeles LA</option>
