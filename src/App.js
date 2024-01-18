@@ -88,7 +88,7 @@ function App() {
       for (let i = 0; i < files.length; i++) {
         data.append(`files`, files[i], files[i].name);
       }
-      fetch('https://npedia.dev.koogle.sk/upload', {
+      fetch('https://npediaimg.koogle.sk/upload', {
         method: 'POST',
         body: data,
       })
