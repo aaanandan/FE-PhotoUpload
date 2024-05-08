@@ -1,3 +1,37 @@
+
+
+# Steps to make changes in the photo uplod  form:
+go to App.js
+make changes
+save
+cd fileuplaod
+npm run build
+it will lead to localhost:3000
+checkt the changes
+stop the cmd prompt
+copy the build folder from fileuplaod
+and paste in photoupload
+run the npm start run
+
+# Building the front end code
+1) git clone feurl    https://github.com/aaanandan/fileuplaod
+2) cd fileUpload
+3) npm install
+4) npm run build
+5) copy the build folder created  using fileExplorer
+Building the Back end code
+1) git clone beurl
+2) cd photoUpload
+3) npm install
+4) npx nodemon server.js
+# Deploying FE build to BE server
+1) cd fileupload
+2) git pull
+3) npm i 
+4) npm run build
+4) copy the build folder from here and paste it inside photoUpload
+
+   
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
