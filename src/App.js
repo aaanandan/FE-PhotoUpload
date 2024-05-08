@@ -161,6 +161,7 @@ function App() {
               onChange={(e) => { setPlace(e.target.value) }}
             >
               <option value="ADIKAILASA" data-select2-id={2} selected="selected">ADIKAILASA</option>
+              <option value="KAILASA SALEM">KAILASA SALEM</option>
 <option value="APATH SANYASI - MALE">APATH SANYASI - MALE</option>
 <option value="APATH SANYASI - FEMALE">APATH SANYASI - FEMALE</option>
 <option value="KAILASA AMERSFOORT, NETHERLANDS">KAILASA AMERSFOORT, NETHERLANDS</option>
