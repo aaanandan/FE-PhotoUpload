@@ -14,7 +14,7 @@ and paste in photoupload
 run the npm start run
 
 # Building the front end code
-1) git clone feurl    https://github.com/aaanandan/fileuplaod
+1) git clone feurl    https://github.com/aaanandan/FE-PhotoUpload
 2) cd fileUpload
 3) npm install
 4) npm run build
