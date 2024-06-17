@@ -18,8 +18,8 @@ run the npm start run
 2) cd fileUpload
 3) npm install
 4) npm run build
-5) copy the build folder created  using fileExplorer
-Building the Back end code
+5) copy the build folder created  using fileExplorer.
+for runninnig the Backend code with updated fe changes.
 1) git clone beurl
 2) cd photoUpload
 3) npm install
