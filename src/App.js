@@ -373,7 +373,6 @@ function App() {
               name="pd_brief"
               rows={5}
               cols={50}
-              required
               defaultValue={""}
               onChange={(e) => { setPresidentialBriefing(e.target.value) }}
             />
@@ -395,7 +394,7 @@ function App() {
                 <li>1008 Naivedyams offered on the occasion of Guru Purnima</li>
               </ul>
             </span>
-            <span className="denote_required">This input field is mandatory.</span>
+{/* <span className="denote_required">This input field is mandatory.</span> */}
           </div>
           <div className="event_type">
             <label htmlFor="event_type">Event Type</label>
