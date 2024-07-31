@@ -57,7 +57,7 @@ function App() {
   let [presidentialBriefing, setPresidentialBriefing] = useState(null);
   let [eventType, setEventType] = useState('Daily Rituals (Nithyotsavam)');
   let [eventName, setEventName] = useState(null);
-  let [activityType, setActivityType] = useState(null);
+  let [activityType, setActivityType] = useState([]);
   let [volunteerCount, setVolunteerCount] = useState(null);
   let [livesEnriched, setLivesEnriched] = useState(null);
   let [description, setDescription] = useState(null);
@@ -452,7 +452,9 @@ function App() {
               tabIndex={-1}
               className=""
               aria-hidden="true"
-              onChange={(e) => { setActivityType(e.target.value) }}
+              onChange={(e) => {
+                console.log(activityType);
+                setActivityType((Array.from(e.target.selectedOptions)).map(v=>v.value)) }}
 
             >
               <option value="ritual">Puja and Rituals</option>
