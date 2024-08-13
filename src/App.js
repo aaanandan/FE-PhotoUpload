@@ -79,7 +79,8 @@ function App() {
         data.append(`files`, files[i], files[i].name);
       }
       ////http://localhost:3000
-      fetch("https://npediaimg.koogle.sk/upload", {
+      //https://npediaimg.koogle.sk
+      fetch("http://localhost:3000/upload", {
         method: "POST",
         body: data,
       })
@@ -688,38 +689,7 @@ function App() {
               contact NPedia/KPedia team.{" "}
             </span>
           </div>
-          <div className="pd_brief textarea_container">
-            <label htmlFor="pd_brief">Presidential Briefing</label>
-            <textarea
-              id="pd_brief"
-              name="pd_brief"
-              rows={5}
-              cols={50}
-              defaultValue={""}
-              onChange={(e) => {
-                setPresidentialBriefing(e.target.value);
-              }}
-            />
-            <span id="pd_brief_helptext" className="helptext">
-              <p>
-                <strong>Presidential Brief</strong> is a concise reports
-                providing significant and publicly reportable achievements of
-                your KAILASA entity to Swamiji - the SPH JGM HDH Bhagavan
-                Nithyananda Paramashivam and KAILASA. These will be used as
-                input for newsletters and other publications. Please submit
-                these reports per the latest format, and usually it is mandatory
-                to include numbers and statistics, some examples:
-              </p>
-              <ul>
-                <li>
-                  200 people were served anna daan, including 10 policemen, and
-                  5 public healthcare workers.
-                </li>
-                <li>1008 Naivedyams offered on the occasion of Guru Purnima</li>
-              </ul>
-            </span>
-            {/* <span className="denote_required">This input field is mandatory.</span> */}
-          </div>
+
           <div className="event_type">
             <label htmlFor="event_type">Event Type</label>
             <select
@@ -896,6 +866,24 @@ function App() {
                 setDescription(e.target.value);
               }}
             />
+            <span id="pd_brief_helptext" className="helptext">
+              <p>
+                <strong>Description</strong> is a concise reports providing
+                significant and publicly reportable achievements of your KAILASA
+                entity to Swamiji - the SPH JGM HDH Bhagavan Nithyananda
+                Paramashivam and KAILASA. These will be used as input for
+                newsletters and other publications. Please submit these reports
+                per the latest format, and usually it is mandatory to include
+                numbers and statistics, some examples:
+              </p>
+              <ul>
+                <li>
+                  200 people were served anna daan, including 10 policemen, and
+                  5 public healthcare workers.
+                </li>
+                <li>1008 Naivedyams offered on the occasion of Guru Purnima</li>
+              </ul>
+            </span>
             <span id="description_helptext" className="helptext">
               Give a complete description of the event, in as few words as
               possible.
