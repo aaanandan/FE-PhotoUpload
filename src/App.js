@@ -80,7 +80,7 @@ function App() {
       }
       ////http://localhost:3000
       //https://npediaimg.koogle.sk
-      fetch("http://localhost:3000/upload", {
+      fetch("https://npediaimg.koogle.sk/upload", {
         method: "POST",
         body: data,
       })
