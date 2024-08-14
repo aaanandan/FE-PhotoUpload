@@ -673,6 +673,15 @@ function App() {
                 SURYA VAMSA SURANGI SAMRAJYA SARVAJNAPEETAM
               </option>
               <option value="KAILASA PHOENIX, USA">KAILASA PHOENIX, USA</option>
+              <option value="KAILASA SIERRA LEONE">KAILASA SIERRA LEONE</option>
+<option value="KAILASA ECUADOR">KAILASA ECUADOR</option>
+<option value="KAILASA PONNERI">KAILASA PONNERI</option>
+<option value="KAILASA COIMBATORE">KAILASA COIMBATORE</option>
+<option value="KAILASA KELAMBAKKAM">KAILASA KELAMBAKKAM</option>
+<option value="KAILASA PATTABIRAM">KAILASA PATTABIRAM</option>
+<option value="KAILASA POONAMALLE">KAILASA POONAMALLE</option>
+<option value="KAILASA TIRUNINRAVUR">KAILASA TIRUNINRAVUR</option>
+<option value="KAILASA YSJP3">KAILASA YSJP3</option>
             </select>
             {/* <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1"
           style="width: 628.85px;"><span class="selection"><span
