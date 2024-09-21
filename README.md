@@ -31,6 +31,11 @@ for runninnig the Backend code with updated fe changes.
 4) npm run build
 4) copy the build folder from here and paste it inside photoUpload
 
+# code changes and commit
+1) git pull     // already uptodate
+2) do the code changes
+3) git commit
+4) git push
    
 # Getting Started with Create React App
 

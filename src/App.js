@@ -80,7 +80,7 @@ function App() {
       }
       ////http://localhost:3000
       //https://npediaimg.koogle.sk
-      fetch("https://npediaimg.koogle.sk/upload", {
+      fetch("https://npediaimg.ecitizen.info/upload", {
         method: "POST",
         body: data,
       })
@@ -172,6 +172,7 @@ function App() {
               }}
             >
                <option value="ADIKAILASA" data-select2-id={2} selected="selected">ADIKAILASA</option>
+               <option value="KAILASA AVADI">KAILASA AVADI-CHENNAI</option>
               <option value="KAILASA SALEM">KAILASA SALEM</option>
               <option value="KAILASA SRIPURAM">KAILASA HYDERABAD SRIPURAM</option>
 <option value="KAILASA NEW JERSEY">KAILASA NEW JERSEY</option>
@@ -400,6 +401,14 @@ function App() {
 <option value="KAILASA POONAMALLE">KAILASA POONAMALLE</option>
 <option value="KAILASA TIRUNINRAVUR">KAILASA TIRUNINRAVUR</option>
 <option value="KAILASA YSJP3">KAILASA YSJP3</option>
+<option value="KAILASA DORDOGNE">KAILASA DORDOGNE</option>
+<option value="KAILASA REUNION">KAILASA REUNION</option>
+<option value="KAILASA FRANCE">KAILASA FRANCE</option>
+<option value="KAILASA VANIYAMBAI">KAILASA VANIYAMBAI</option>
+<option value="KAILASA VANIYAMBAI">KAILASA KORATTUR-CHENNAI</option>
+<option value="KAILASA UTTARAHALLI">KAILASA UTTARAHALLI-BANGALORE</option>
+<option value="KAILASA PORUR">KAILASA PORUR-CHENNAI</option>
+<option value="KAILAS WHYALLA AUSTRALIA">KAILASA WHYALLA AUSTRALIA</option>
 </select>
             {/* <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1"
           style="width: 628.85px;"><span class="selection"><span
