@@ -78,9 +78,7 @@ function App() {
       for (let i = 0; i < files.length; i++) {
         data.append(`files`, files[i], files[i].name);
       }
-      ////http://localhost:3000
-      //https://npediaimg.koogle.sk
-      fetch("https://npediaimg.ecitizen.info/upload", {
+      fetch(process.env.UPLOAD_ENDPOINT, {
         method: "POST",
         body: data,
       })
