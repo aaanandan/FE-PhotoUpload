@@ -74,10 +74,12 @@ function App() {
       data.append("description", description);
 
       let input = document.querySelector('input[type="file"]');
-      console.log("files...", input.files, files);
+      console.log("files... process.env.UPLOAD_ENDPOINT", input.files, files, process.env.UPLOAD_ENDPOINT );
+      
       for (let i = 0; i < files.length; i++) {
         data.append(`files`, files[i], files[i].name);
       }
+      
       fetch(process.env.UPLOAD_ENDPOINT, {
         method: "POST",
         body: data,
