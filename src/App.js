@@ -74,13 +74,13 @@ function App() {
       data.append("description", description);
 
       let input = document.querySelector('input[type="file"]');
-      console.log("files... process.env.UPLOAD_ENDPOINT", input.files, files, process.env.UPLOAD_ENDPOINT );
+      console.log("files... process.env.UPLOAD_ENDPOINT", input.files, files, process.env.REACT_APP_UPLOAD_ENDPOINT );
       
       for (let i = 0; i < files.length; i++) {
         data.append(`files`, files[i], files[i].name);
       }
       
-      fetch(process.env.UPLOAD_ENDPOINT, {
+      fetch(process.env.REACT_APP_UPLOAD_ENDPOINT, {
         method: "POST",
         body: data,
       })
